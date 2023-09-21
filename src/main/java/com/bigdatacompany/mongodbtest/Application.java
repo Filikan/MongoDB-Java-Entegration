@@ -10,7 +10,7 @@ public class Application {
         ConnectionString connectionString = new ConnectionString("mongodb://localhost:27017");
         MongoClient mongoClient = MongoClients.create(connectionString);
         MongoDatabase infoDB = mongoClient.getDatabase("Info");
-        infoDB.getCollection("Personal");
+        infoDB.createCollection("Personal");
 
     }
 }
