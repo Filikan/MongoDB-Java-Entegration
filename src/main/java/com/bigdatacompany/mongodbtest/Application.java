@@ -37,8 +37,8 @@ public class Application {
             System.out.println(doc.toJson());
         }*/
 
-        Bson filter = Filters.eq("name", "Furkan");
-        Bson update = Updates.set("date", 1999);
+        Bson filter = Filters.exists("job");
+        Bson update = Updates.set("child", "Ahmet");
         personalCollection.updateOne(filter,update);
 
         FindIterable<Document> documents = personalCollection.find();
