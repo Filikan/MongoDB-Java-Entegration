@@ -37,9 +37,12 @@ public class Application {
             System.out.println(doc.toJson());
         }*/
 
-        Bson filter = Filters.exists("job");
+        /*Bson filter = Filters.exists("job");
         Bson update = Updates.set("child", "Ahmet");
-        personalCollection.updateOne(filter,update);
+        personalCollection.updateOne(filter,update);*/
+
+        Bson deleteFilter = Filters.eq("name", "Cem");
+        personalCollection.deleteOne(deleteFilter);
 
         FindIterable<Document> documents = personalCollection.find();
 
