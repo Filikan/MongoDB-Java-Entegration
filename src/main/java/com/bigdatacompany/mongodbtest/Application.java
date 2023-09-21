@@ -2,10 +2,7 @@ package com.bigdatacompany.mongodbtest;
 
 import com.mongodb.BasicDBObject;
 import com.mongodb.ConnectionString;
-import com.mongodb.client.MongoClient;
-import com.mongodb.client.MongoClients;
-import com.mongodb.client.MongoCollection;
-import com.mongodb.client.MongoDatabase;
+import com.mongodb.client.*;
 import org.bson.Document;
 
 import java.util.Arrays;
@@ -25,9 +22,15 @@ public class Application {
                 .append("date","1993")
                 .append("country","Türkiye");
 
-        Document parse = Document.parse(data.toJson());
+        /*Document parse = Document.parse(data.toJson());
         Document parse2 = Document.parse(data2.toJson());
 
-        personalCollection.insertMany(Arrays.asList(parse,parse2));
+        personalCollection.insertMany(Arrays.asList(parse,parse2));*/
+
+        FindIterable<Document> documents = personalCollection.find();
+
+        for (Document doc:documents){
+            System.out.println(doc.toJson());
+        }
     }
 }
